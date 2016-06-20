@@ -1,0 +1,20 @@
+#required for imessage pictures
+icloud.com
+
+#required for google accounts signin
+youtube.com
+
+#i really want dropbox...
+dropbox.com
+
+ubuntu.com
+archive.ubuntu.com
+dl.google.com
+romulation.net
+
+#steamcloud-syd.s3.amazonaws.com is for ns2
+s3.amazonaws.com
+
+# ubisoft uses these CDNs
+digitalriver.com
+digitalrivercontent.net

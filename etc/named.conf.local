@@ -1,0 +1,44 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+
+//include "/etc/bind/zones.rfc1918";
+
+# this is insecure but we rely on docker firewall to keep it safe.
+# don't use this when bind is authoritive for zones
+controls {
+  inet * allow { any; };
+};
+
+
+
+zone "rpz.cache.ls" {
+      type master;
+      file "/etc/bind/rpz.cache.ls.db";
+      allow-query {localhost;};
+      allow-update {none;};
+};
+
+
+zone "rpz.custom.ls" {
+      type master;
+      file "/etc/bind/rpz.custom.ls.db";
+      allow-query {localhost;};
+      allow-update {none;};
+};
+
+zone "rpz.block.ls" {
+      type master;
+      file "/etc/bind/rpz.block.ls.db";
+      allow-query {localhost;};
+      allow-update {none;};
+};
+
+zone "ls" IN {
+      type master;
+      file "/etc/bind/ls.db";
+};
+
