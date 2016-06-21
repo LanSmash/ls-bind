@@ -1,13 +1,13 @@
 $TTL	10
 @	IN	SOA	ls. root.ls. (
-			21		; Serial
+			22		; Serial
  			30	; refresh secs
        			30	; retry secs
        			60	; expire secs
        			60	; nxdomain ttl secs
 			) 
-;
-@		IN	NS	localhost.
+	IN	NS	dns ;
+
 ;block		IN	CNAME	proxy
 block		IN	CNAME	lansmash.github.io.
 

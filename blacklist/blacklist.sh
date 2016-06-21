@@ -69,11 +69,8 @@ cat "./BL/webtv/domains" >> blocklist.txt
 $DIR/convert2bindrpz.pl blocklist.txt > rpz.block.ls.db
 
 echo rpz.block.ls.db created in /tmp/blocklist.
-echo updating /etc/bind
-
-sudo cp rpz.block.ls.db $DIR/../bind
-
-echo "rpz.block.ls.db updated in $DIR/../bind"
+echo updating $DIR/../etc/rpz.block.ls.db
+cp rpz.block.ls.db $DIR/../etc/
 
 echo applying whitelist.txt
 $DIR/unblock.sh $DIR/whitelist.txt
@@ -83,6 +80,3 @@ echo reloading bind, this takes a few minutes
 #sudo service bind9 reload
 echo if bind reload fails, you can always restart bind...
 docker exec -it bind rndc reload
-echo lanching log viewer, press ctrl + c to exit
-sleep 2
-docker logs -f bind

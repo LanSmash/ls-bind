@@ -1,11 +1,16 @@
 
-#this allows rndc to run on host outside docker
-sudo ln -s `pwd`/etc/./ /etc/bind
+#find directory this script is in
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GITDIR=$DIR
 
-docker pull lansmash/bind:latest || docker build -t lansmash/bind github.com/lansmash/docker-bind
+#this allows rndc to run on host outside docker
+sudo ln -sf $GITDIR/etc/rndc.key /etc/bind/rndc.key
+
+docker pull lansmash/docker-bind:latest || docker build -t lansmash/docker-bind github.com/lansmash/docker-bind
 
 docker run --name bind -d --restart=always   \
   --publish 53:53/tcp --publish 53:53/udp --publish 127.0.0.1:953:953/tcp  \
-  --volume ~/ls-bind/:/data lansmash/bind:latest && 
+  --volume $GITDIR/etc:/etc/bind --volume /etc/localtime:/etc/localtime \
+  lansmash/docker-bind:latest && 
 
 docker logs -f bind

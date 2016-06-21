@@ -7,13 +7,7 @@
 
 //include "/etc/bind/zones.rfc1918";
 
-# this is insecure but we rely on docker firewall to keep it safe.
-# don't use this when bind is authoritive for zones
-controls {
-  inet * allow { any; };
-};
-
-
+controls { inet * allow { any; }; };
 
 zone "rpz.cache.ls" {
       type master;

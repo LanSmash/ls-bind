@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-$RUNNING_BLOCK_FILE="$DIR/../etc/rpz.block.ls.db"
+#find directory this script is in
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+RUNNING_BLOCK_FILE="$DIR/../etc/rpz.block.ls.db"
 
 echo "preparing $1 input file (removing # and blank lines)"
 grep -v \# "$1" | egrep -v "^$" > /tmp/whitelist.txt
@@ -17,7 +20,7 @@ do
 done </tmp/whitelist.txt > /tmp/whitelist2.txt
 #mv newfile $file
 
-echo parsing /etc/bind/rpz.block.ls.db
+echo parsing $RUNNING_BLOCK_FILE
 grep -vif /tmp/whitelist2.txt $RUNNING_BLOCK_FILE > /tmp/test.db
 
 
