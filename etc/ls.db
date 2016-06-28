@@ -8,25 +8,25 @@ $TTL	10
 			) 
 	IN	NS	dns ;
 
-;block		IN	CNAME	proxy
-block		IN	CNAME	lansmash.github.io.
+block		IN	CNAME	proxy
+;block		IN	CNAME	lansmash.github.io.
 
 ; proxy wpad info
 ; don't use wpad, it's impossible to have some hosts bypass proxy.
 ;wpad           IN      CNAME   proxy
 ;@				IN	TXT	"service: wpad:http://wpad.ls:80/wpad.dat"
 ;wpad.tcp		IN	SRV	0 0 80 wpad.ls 
-steamcache		IN	CNAME	cache
 intranet		IN	CNAME 	home
 
 ;home.ls is used for captive portal in squid
 home			IN	CNAME	lansmash.github.io.
 
 ;servers 
-dns             IN  A   10.0.0.2
-proxy           IN  A   172.16.5.2
-cache			IN	A	10.0.0.3
-dc              IN  A   10.0.0.72
+dns             	IN  A   10.0.0.2
+proxy           	IN  A   172.16.5.2
+cache			IN  A	10.0.0.2
+
+dc              	IN  A   10.0.0.72
 mumble1			IN	A	10.0.0.51
 mumble2			IN	A	10.0.0.52
 nas				IN	A	10.0.0.17
@@ -63,13 +63,21 @@ soldat			IN	CNAME	gs2
 
 ut				IN	CNAME	gsut
 
-	
-lancache-pass           IN      A       10.0.0.51
-lancache-xbox			IN		A		10.0.0.52
-lancache-steam			IN		A		10.0.0.53
-lancache-riot	        IN      A       10.0.0.54
-lancache-blizzard       IN      A       10.0.0.55
-lancache-hirez	        IN      A       10.0.0.56
-lancache-origin	        IN      A       10.0.0.57
-lancache-sony	        IN      A       10.0.0.58
+lancache-steam          IN	CNAME cache
+lancache-riot		IN	CNAME cache
+lancache-xbox		IN      CNAME cache
+lancache-riot		IN      CNAME cache
+lancache-steam		IN      CNAME cache
+lancache-blizzard	IN      CNAME cache
+lancache-hirez		IN      CNAME cache
+lancache-origin		IN      CNAME cache
+lancache-sony		IN      CNAME cache
+
+;lancache-xbox			IN		A		10.0.0.52
+;lancache-steam			IN		A		10.0.0.53
+;lancache-riot	        IN      A       10.0.0.54
+;lancache-blizzard       IN      A       10.0.0.55
+;lancache-hirez	        IN      A       10.0.0.56
+;lancache-origin	        IN      A       10.0.0.57
+;lancache-sony	        IN      A       10.0.0.58
 

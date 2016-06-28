@@ -72,7 +72,7 @@ dist.blizzard.com		IN CNAME lancache-blizzard.ls.
 hirez.http.internapcdn.net	IN CNAME lancache-hirez.ls.
 
 ;origin
-;akamai.cdn.ea.com		IN CNAME lancache-origin.ls.
+akamai.cdn.ea.com		IN CNAME lancache-origin.ls.
 
 ; sony
 pls.patch.station.sony.com	IN CNAME lancache-sony.ls.
