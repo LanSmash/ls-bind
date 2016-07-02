@@ -1,83 +1,39 @@
-$TTL	10
-@	IN	SOA	ls. root.ls. (
-			22		; Serial
- 			30	; refresh secs
-       			30	; retry secs
-       			60	; expire secs
-       			60	; nxdomain ttl secs
-			) 
-	IN	NS	dns ;
+$TTL    10
+@       					 IN SOA     	ls. root.ls. (
+                        			    22          ; Serial
+                        			    30      	; refresh secs
+						    30      	; retry secs
+						    60      	; expire secs
+						    60      	; nxdomain ttl secs
+						    )
+						 IN NS		dns
 
-block		IN	CNAME	proxy
-;block		IN	CNAME	lansmash.github.io.
+dns					      10 IN A		10.0.0.2
+block					      10 IN CNAME	proxy.ls.
+proxy					      10 IN A		172.16.5.2
 
-; proxy wpad info
-; don't use wpad, it's impossible to have some hosts bypass proxy.
-;wpad           IN      CNAME   proxy
-;@				IN	TXT	"service: wpad:http://wpad.ls:80/wpad.dat"
-;wpad.tcp		IN	SRV	0 0 80 wpad.ls 
-intranet		IN	CNAME 	home
+home.ls.				      10 IN CNAME	lansmash.github.io.
+intranet.ls.				      10 IN CNAME	home.ls.
+dc.ls.					      10 IN A		10.0.0.72
 
-;home.ls is used for captive portal in squid
-home			IN	CNAME	lansmash.github.io.
-
-;servers 
-dns             	IN  A   10.0.0.2
-proxy           	IN  A   172.16.5.2
-cache			IN  A	10.0.0.2
-
-dc              	IN  A   10.0.0.72
-mumble1			IN	A	10.0.0.51
-mumble2			IN	A	10.0.0.52
-nas				IN	A	10.0.0.17
-netboot			IN	A	10.0.0.15
-netmon			IN	A	10.0.0.33
-ggf				IN	A	10.0.0.60
-
-
-;Dave / Skrubrekr - Servers
-skrub-ws		IN	A	10.0.0.71
-skrub-sv		IN	A	10.0.0.72
-skrub-web		IN	A	10.0.0.73
-gscs			IN	A	10.0.0.74
-gs1				IN	A	10.0.0.75
-gs2				IN	A	10.0.0.76
-gsut			IN	A	10.0.0.77
-gsspare1		IN	A	10.0.0.78
-gsspare2		IN	A	10.0.0.79
-
-;Dave / Skrubrekr - Service CNAME's
-ddl			IN	CNAME	skrub-web
-mumble			IN	CNAME	skrub-web
-
-csgo-casual		IN	CNAME	gscs
-csgo-arms		IN	CNAME	gscs
-armagedtron		IN	CNAME	gscs
-
-tf2				IN	CNAME	gs1
-gmod			IN	CNAME	gs1
-
-l4d2			IN	CNAME	gs2
-ns2				IN	CNAME	gs2
-soldat			IN	CNAME	gs2
-
-ut				IN	CNAME	gsut
-
-lancache-steam          IN	CNAME cache
-lancache-riot		IN	CNAME cache
-lancache-xbox		IN      CNAME cache
-lancache-riot		IN      CNAME cache
-lancache-steam		IN      CNAME cache
-lancache-blizzard	IN      CNAME cache
-lancache-hirez		IN      CNAME cache
-lancache-origin		IN      CNAME cache
-lancache-sony		IN      CNAME cache
-
-;lancache-xbox			IN		A		10.0.0.52
-;lancache-steam			IN		A		10.0.0.53
-;lancache-riot	        IN      A       10.0.0.54
-;lancache-blizzard       IN      A       10.0.0.55
-;lancache-hirez	        IN      A       10.0.0.56
-;lancache-origin	        IN      A       10.0.0.57
-;lancache-sony	        IN      A       10.0.0.58
-
+armagedtron.ls.				      10 IN CNAME	gscs.ls.
+csgo-arms.ls.				      10 IN CNAME	gscs.ls.
+csgo-casual.ls.				      10 IN CNAME	gscs.ls.
+ddl.ls.					      10 IN CNAME	skrub-web.ls.
+ggf.ls.					      10 IN A		10.0.0.60
+gmod.ls.				      10 IN CNAME	gs1.ls.
+gs1.ls.					      10 IN A		10.0.0.75
+gs2.ls.					      10 IN A		10.0.0.76
+gscs.ls.				      10 IN A		10.0.0.74
+gsspare1.ls.				      10 IN A		10.0.0.78
+gsspare2.ls.				      10 IN A		10.0.0.79
+gsut.ls.				      10 IN A		10.0.0.77
+l4d2.ls.				      10 IN CNAME	gs2.ls.
+mumble.ls.				      10 IN CNAME	skrub-web.ls.
+ns2.ls.					      10 IN CNAME	gs2.ls.
+skrub-sv.ls.				      10 IN A		10.0.0.72
+skrub-web.ls.				      10 IN A		10.0.0.73
+skrub-ws.ls.				      10 IN A		10.0.0.71
+soldat.ls.				      10 IN CNAME	gs2.ls.
+tf2.ls.					      10 IN CNAME	gs1.ls.
+ut.ls.					      10 IN CNAME	gsut.ls.
