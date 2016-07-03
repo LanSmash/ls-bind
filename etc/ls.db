@@ -9,7 +9,7 @@ $TTL    10
 						 IN NS		dns
 
 dns					      10 IN A		10.0.0.2
-block					      10 IN CNAME	proxy.ls.
+block					      10 IN A		172.16.5.3
 proxy					      10 IN A		172.16.5.2
 
 home.ls.				      10 IN CNAME	lansmash.github.io.
