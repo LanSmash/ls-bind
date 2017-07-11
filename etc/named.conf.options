@@ -44,5 +44,7 @@ options {
 		zone "rpz.block.ls" policy CNAME block.ls;
 	};
 
+	// Empty zones (don't forward RFC1918 PTR requests to the internet)
+	empty-zones-enable yes;
 };
 

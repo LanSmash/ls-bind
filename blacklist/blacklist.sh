@@ -54,7 +54,7 @@ cat "./BL/redirector/domains" >> blocklist.txt
 #cat "./BL/shopping/domains" >> blocklist.txt
 #cat "./BL/socialnet/domains" >> blocklist.txt
 cat "./BL/spyware/domains" >> blocklist.txt
-cat "./BL/tracker/domains" >> blocklist.txt
+#cat "./BL/tracker/domains" >> blocklist.txt #this includes download.microsoft.com
 #cat "./BL/updatesites/domains" >> blocklist.txt
 #cat "./BL/urlshortener/domains" >> blocklist.txt
 #cat "./BL/violence/domains" >> blocklist.txt
