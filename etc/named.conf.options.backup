@@ -1,0 +1,48 @@
+options {
+	directory "/var/cache/bind";
+
+	// If there is a firewall between you and nameservers you want
+	// to talk to, you may need to fix the firewall to allow multiple
+	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+	// If your ISP provided one or more IP addresses for stable 
+	// nameservers, you probably want to use them as forwarders.  
+	// Uncomment the following block, and insert the addresses replacing 
+	// the all-0's placeholder.
+
+	# Forward all DNS queries to the Google Public DNS. 
+	forwarders { 8.8.8.8; 8.8.4.4; }; 
+	forward only; 
+
+	//========================================================================
+	// If BIND logs error messages about the root key being expired,
+	// you will need to update your keys.  See https://www.isc.org/bind-keys
+	//========================================================================
+	// perth was failing dns authentication
+	dnssec-validation auto;
+	//dnssec-enable no; dnssec-validation no;
+
+	auth-nxdomain no;    # conform to RFC1035
+	listen-on-v6 { any; };
+
+	allow-transfer { "none"; };
+
+	querylog yes;	
+
+	// recursion range you allow
+	allow-recursion { 
+		localhost; 
+		10.0.0.0/8; 
+		192.168.0.0/16; 
+		172.16.0.0/20;
+	};
+	
+	// block list
+	// http://dns.blog4ever.com/rpz-et-dns-exemple-de-configuration
+	response-policy { 
+		//zone "rpz.custom.ls" policy CNAME block.ls;
+		//zone "rpz.block.ls" policy CNAME block.ls;
+	};
+
+};
+

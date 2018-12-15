@@ -15,6 +15,10 @@ romulation.net
 #steamcloud-syd.s3.amazonaws.com is for ns2
 s3.amazonaws.com
 
-# ubisoft uses these CDNs
+#ubisoft uses these CDNs
 digitalriver.com
 digitalrivercontent.net
+
+#resilio sync
+getsync.com
+download-cdn.getsync.com

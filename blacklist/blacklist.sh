@@ -40,12 +40,12 @@ cat "./BL/hacking/domains" >> blocklist.txt
 #cat "./BL/military/domains" >> blocklist.txt
 #cat "./BL/models/domains" >> blocklist.txt
 cat "./BL/movies/domains" >> blocklist.txt
-cat "./BL/music/domains" >> blocklist.txt
+#cat "./BL/music/domains" >> blocklist.txt
 #cat "./BL/news/domains" >> blocklist.txt
-cat "./BL/podcasts/domains" >> blocklist.txt
+#cat "./BL/podcasts/domains" >> blocklist.txt
 #cat "./BL/politics/domains" >> blocklist.txt
 cat "./BL/porn/domains" >> blocklist.txt
-cat "./BL/radiotv/domains" >> blocklist.txt
+#cat "./BL/radiotv/domains" >> blocklist.txt
 cat "./BL/redirector/domains" >> blocklist.txt
 #cat "./BL/religion/domains" >> blocklist.txt
 #cat "./BL/remotecontrol/domains" >> blocklist.txt
@@ -62,7 +62,7 @@ cat "./BL/warez/domains" >> blocklist.txt
 #cat "./BL/weapons/domains" >> blocklist.txt
 #cat "./BL/webmail/domains" >> blocklist.txt
 #cat "./BL/webphone/domains" >> blocklist.txt  #needed for skype chat
-cat "./BL/webradio/domains" >> blocklist.txt
+#cat "./BL/webradio/domains" >> blocklist.txt
 cat "./BL/webtv/domains" >> blocklist.txt
 
 #convert the raw blocklist.txt list of domains to a rpz format

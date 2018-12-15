@@ -1,6 +1,6 @@
 $TTL    10
 @       					 IN SOA     	ls. root.ls. (
-                        			    23          ; Serial
+                        			    24          ; Serial
                         			    30      	; refresh secs
 						    30      	; retry secs
 						    60      	; expire secs
@@ -12,11 +12,12 @@ dns					      10 IN A		10.0.0.2
 block					      10 IN A		172.16.5.3
 proxy					      10 IN A		172.16.5.2
 
+netmon.ls.				      10 IN CNAME	proxy.ls.
 ;home.ls.				      10 IN CNAME	lansmash.github.io.
 home.ls.				      10 IN CNAME	skrub-web.ls.
-techdrive.ls.				      10 IN CNAME	skrub-web.ls.
+techdrive.ls.				      10 IN CNAME	something.ls.
 intranet.ls.				      10 IN CNAME	home.ls.
-dc.ls.					      10 IN A		10.0.0.148
+dc.ls.					      10 IN CNAME	something.ls.
 armagedtron.ls.				      10 IN CNAME	gscs.ls.
 csgo-arms.ls.				      10 IN CNAME	gscs.ls.
 csgo-casual.ls.				      10 IN CNAME	gscs.ls.
@@ -38,3 +39,4 @@ skrub-ws.ls.				      10 IN A		10.0.0.71
 soldat.ls.				      10 IN CNAME	gs2.ls.
 tf2.ls.					      10 IN CNAME	gs1.ls.
 ut.ls.					      10 IN CNAME	gsut.ls.
+something.ls.				      10 IN A		10.0.1.186

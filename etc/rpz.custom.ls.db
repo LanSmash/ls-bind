@@ -3,7 +3,7 @@
 ;
 $TTL 10
 @       IN SOA rpz.custom.ls. rpz.custom.ls. (
-       201404045;
+       201809291;
        3600;
        300;
        86400;
@@ -15,53 +15,65 @@ youtube.com	 	IN CNAME youtube.com.
 accounts.youtube.com	IN CNAME accounts.youtube.com.
 *.youtube.com		IN CNAME *. ; cannot whitelist an entire subdomain because of the *
 
+; steam content servers
+;steam.cdn.on.net	IN CNAME steamcache.ls.
+;akamai.cdn.steampipe.steamcontent.com
+;steam.ix.asn.au
+;cdn.edgecast.cs.steampowered.com
+
+
+; degrade some CDNs to http by resolving to RFC1918 addresses.
+; this is a bogus address that will still get routed to nginx
+;l3cdn.riotgames.com	IN A 192.168.1.2
+;worldwide.l3cdn.riotgames.com	IN A 192.168.1.2
+;cdn1.unrealengine.com	IN A 192.168.1.2
+;download-dynamic.epicgames.com	IN A 192.168.1.2
+;datarouter.ol.epicgames.com	IN A 192.168.1.2
+
 ;blocks
 ;pandonetworks.com is the p2p network for league of legends downloader
 ;blocking pandonetworks seams to cause LOL downloader to timeout
+www.righto.com		IN A 192.168.1.2
 pandonetworks.com	IN CNAME *.;
 *.pandonetworks.com	IN CNAME *.;
-;speedtest.net		IN CNAME *.;
-;*.speedtest.net		IN CNAME *.;
-;pingtest.net		IN CNAME *.;
-;*.pingtest.net		IN CNAME *.;
-;ookla.com		IN CNAME *.;
-;*.ookla.com		IN CNAME *.;
-;netindex.com		IN CNAME *.;
-;*.netindex.com		IN CNAME *.;
-;netindex.co		IN CNAME *.;
-;*.netindex.co		IN CNAME *.;
+bitdefender.net		IN CNAME block.ls.;
+*.bitdefender.net	IN CNAME block.ls.;
 
-;utorrent.com		IN CNAME *.;
-;*.utorrent.com		IN CNAME *.;
-tracker.freshon.tv	IN CNAME *.;
-;utorrent above is used for btsync i think
+*.freshon.tv	IN CNAME block.ls.;
+
+mlg.tv			IN CNAME block.ls.;
+*.mlg.tv		IN CNAME block.ls.;
+plex.tv			IN CNAME block.ls.;
+*.plex.tv		IN CNAME block.ls.;
+*.tv			IN CNAME block.ls.;
+
 
 ; updates
-get.adobe.com			IN CNAME *.;
-updates.installshield.com	IN CNAME *.;
-;windows updates are needed for .net install of games (maybe we don't know)
-;windowsupdate.com		IN CNAME *.;
-;*.windowsupdate.com             IN CNAME *.;
-;*.download.windowsupdate.com    IN CNAME *.;
+get.adobe.com			IN CNAME block.ls.;
+updates.installshield.com	IN CNAME block.ls.;
 	
 ; avast will use HTTPS to provide real DNS results instead of our RPZ
-avast.com			IN CNAME *.;
-*.avast.com                     IN CNAME *.;
-*.*.avast.com                   IN CNAME *.;
-*.*.*.avast.com                 IN CNAME *.;
-*.*.*.*.avast.com               IN CNAME *.;
+avast.com			IN CNAME block.ls.;
+*.avast.com                     IN CNAME block.ls.;
+*.*.avast.com                   IN CNAME block.ls.;
+*.*.*.avast.com                 IN CNAME block.ls.;
+*.*.*.*.avast.com               IN CNAME block.ls.;
 
 ; block bitsync since we don't want people using bandwidth at lansmash
-getsync.com			IN CNAME *.;
-*.getsync.com                     IN CNAME *.;
+getsync.com			IN CNAME block.ls.;
+*.getsync.com                     IN CNAME block.ls.;
 
 ; 4chan
-4chan.org			IN CNAME *.;
-*.4chan.org			IN CNAME *.;
-4cdn.org			IN CNAME *.;
-*.4cdn.org                        IN CNAME *.;
+4chan.org			IN CNAME block.ls.;
+*.4chan.org			IN CNAME block.ls.;
+4cdn.org			IN CNAME block.ls.;
+*.4cdn.org                        IN CNAME block.ls.;
 
 ; block malware
-*.addthis.com			IN CNAME *.;
-addthis.com                   IN CNAME *.;
+*.addthis.com			IN CNAME block.ls.;
+addthis.com                   IN CNAME block.ls.;
+
+; tv
+*.stan.com.au                   IN CNAME block.ls.;
+stan.com.au                   IN CNAME block.ls.;
 
